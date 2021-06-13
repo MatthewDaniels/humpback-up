@@ -2,15 +2,46 @@
 
 # colours
 export RED='\033[0;31m'
-export YELLOW='\033[0;33m'
 export GREEN='\033[0;32m'
+export YELLOW='\033[0;33m'
+export BLUE='\033[0;34m'
+
+export LIGHTRED='\033[0;91m'
+export LIGHTGREEN='\033[0;92m'
+export LIGHTYELLOW='\033[0;93m'
+export LIGHTBLUE='\033[0;94m'
 
 export RED_BOLD='\033[1;31m'
 export YELLOW_BOLD='\033[1;33m'
 export GREEN_BOLD='\033[1;32m'
 
+export LIGHTRED_BOLD='\033[1;91m'
+export LIGHTGREEN_BOLD='\033[1;92m'
+export LIGHTYELLOW_BOLD='\033[1;93m'
+export LIGHTBLUE_BOLD='\033[1;94m'
+
+export RED_ITALIC='\033[3;31m'
+export YELLOW_ITALIC='\033[3;33m'
+export GREEN_ITALIC='\033[3;32m'
+
+export LIGHTRED_ITALIC='\033[3;91m'
+export LIGHTGREEN_ITALIC='\033[3;92m'
+export LIGHTYELLOW_ITALIC='\033[3;93m'
+export LIGHTBLUE_ITALIC='\033[3;94m'
+
+export RED_UNDERLINE='\033[4;31m'
+export YELLOW_UNDERLINE='\033[4;33m'
+export GREEN_UNDERLINE='\033[4;32m'
+
+export LIGHTRED_UNDERLINE='\033[4;91m'
+export LIGHTGREEN_UNDERLINE='\033[4;92m'
+export LIGHTYELLOW_UNDERLINE='\033[4;93m'
+export LIGHTBLUE_UNDERLINE='\033[4;94m'
+
+
 #formatting
 export BOLD='\033[1m'
+export ITALICS='\033[3m'
 export UNDERLINE='\033[4m'
 
 # clear formatting

@@ -28,9 +28,5 @@ function gcloudSetup() {
     gcloud init --skip-diagnostics
 
     # create the configs
-    gcloud init --skip-diagnostics --configuration personal-backups
-
-    # Configure docker to use the gcloud command-line tool as a credential helper
-    # @see: https://cloud.google.com/container-registry/docs/quickstart#configure_docker_to_use_the_gcloud_command-line_tool_as_a_credential_helper
-    gcloud auth configure-docker
+    gcloud init --skip-diagnostics --configuration $GCLOUD_CONFIG_NAME
 }
