@@ -64,12 +64,12 @@ DRY_RUN
 ## TODO
 
 - [ ] Externalize source dirs
-  - [] Create a file which is just `source | destination | params`
-  - [] Load in the shell script
-  - [] Iterate the lines
-  - [] Use awk '{print $1}' for source
-  - [] Use awk '{print $3}' for destination
-  - [] Use awk '{for(i=5;i<=NF;++i)print $i}' for params??? - will default to -c -C
+  - [ ] Create a file which is just `source | destination | params`
+  - [ ] Load in the shell script
+  - [ ] Iterate the lines
+  - [ ] Use awk '{print $1}' for source
+  - [ ] Use awk '{print $3}' for destination
+  - [ ] Use awk '{for(i=5;i<=NF;++i)print $i}' for params??? - will default to -c -C
 
 
 
