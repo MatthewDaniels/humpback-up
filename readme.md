@@ -8,10 +8,14 @@
 
 This simple script is an evolution of the great work done by Rudiger Wolf ([rnwolf](https://gist.github.com/rnwolf)) as documented here: https://gist.github.com/rnwolf/533bf309bd84982c4b39d1ca7c03991f
 
-*These scripts are designed for use on Debian based systems*
+*These scripts are designed for use on Debian based systems - and have been tested most thoroughly in Ubuntu*
 
 ----------------------------------------
 ## Setup
+
+### OS Software Requirements
+
+While it was attempted to use ONLY bash capabilities, things were MUCH easier with awk - this is most likely installed in your linux based OS, but its existence is checked and mawk is installed if it is not present.
 
 
 ### GCP Setup
@@ -37,8 +41,26 @@ A single region bucket is fine - high availability is not the aim of this, and a
 
 ### Variables
 
+**Config:**
+
+These are found in the _variables.sh file in the includes folder.
+
+`EXCLUDES`
+- base excludes for use across all runs
+- includes a series of sensible built-in exclusions
+- extra excludes patterns can be sent in via runtime parameters - these are joined at runtime
+
+**Runtime Parameters**
+
+These can be sent into the script as runtime parameters
+
 SOURCE_FILE
+- Absolute path to the file to be loaded
+- Multi-line file
+- Structured as follows: `source | destination | [params] | [excludes]`
+
 DESTINATION_BUCKET
+
 DRY_RUN
 
 
@@ -77,6 +99,8 @@ DRY_RUN
 ## Legal
 
 ### Licence
+
+MIT - see [LICENCE](/LICENCE)
 
 ### Attribution
 
