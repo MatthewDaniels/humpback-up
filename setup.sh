@@ -28,3 +28,23 @@ if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
     fi
 fi
 
+
+#################################
+# Install OS software
+#################################
+echo 
+echo -e "Do you want to install required ${YELLOW}OS Software${NC}?"
+read -p "(y/N): " confirm
+
+if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
+    basePackages
+
+    if [[ $? != 0 ]]; then
+        setupErrorMessage "OS Software"
+        exit 1
+    else
+        echo
+        echo -e "All done!"
+    fi
+fi
+
