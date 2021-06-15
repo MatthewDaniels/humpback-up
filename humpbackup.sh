@@ -5,10 +5,10 @@ export CURRENT_WORKING_DIR=$(pwd)
 #################################
 # Imports
 #################################
-. ../includes/_formatting.sh
-. ../includes/_variables.sh
-. ../includes/_utils.sh
-. ../includes/_sender.sh
+. ./includes/_formatting.sh
+. ./includes/_variables.sh
+. ./includes/_utils.sh
+. ./includes/_sender.sh
 
 
 # Parse the input parameters
