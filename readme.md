@@ -8,6 +8,8 @@ Also checkout the todo list at the bottom of this page.
 
 This simple script is an evolution of the great work done by Rudiger Wolf ([rnwolf](https://gist.github.com/rnwolf)) as documented here: https://gist.github.com/rnwolf/533bf309bd84982c4b39d1ca7c03991f
 
+### READ THE ABOVE TUTORIAL FROM RUDIGER FOR BACKGROUND AND EXTRA HOW TO'S
+
 *These scripts are designed for use on Debian based systems - and have been tested most thoroughly in Ubuntu*
 
 ----------------------------------------
@@ -111,6 +113,12 @@ These can be sent into the script as runtime parameters
 
 How to run the thing...
 
+1. Setup GCP (as above)
+2. Run `setup.sh` script to get OS setup (GCloud SDK & awk if required)
+3. Setup any config variables above in the `_variables.sh` script
+4. Create a descriptor file that has source to destination mapping plus any extra parameters for gsutil (recommend `-e` & `-r` - exclude symlinks & recursive respectively) - see the file [example_input](/example_input)
+5. Run the main script with the appropriate parameters as per **Runtime Parameters** above (minimum requirements are `-f` & `-d`)
+6. Relax, knowing your files are redundantly and securely stored (also, automate it)
 
 ----------------------------------------
 ## Automating
