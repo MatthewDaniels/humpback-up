@@ -3,7 +3,7 @@
 function genericError() {
     local ERROR_MESSAGE=$1
 
-    if [[ -v QUIET ]] && [[ "$QUIET" != "n" ]]; then
+    if [[ -v QUIET ]] && [[ "$QUIET" = "n" ]]; then
         echo
         echo -e "${RED}Uh Oh!${NC} - ${ERROR_MESSAGE}"
         echo
@@ -13,7 +13,7 @@ function genericError() {
 function logMessage() {
     local LOG_MESSAGE=$1
 
-    if [[ -v QUIET ]] && [[ "$QUIET" != "n" ]]; then
+    if [[ -v QUIET ]] && [[ "$QUIET" = "n" ]]; then
         echo
         echo -e "${LOG_MESSAGE}"
         echo

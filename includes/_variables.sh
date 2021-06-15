@@ -27,8 +27,8 @@ export LOG_FOLDER="./logs"
 
 # the [gcloud sdk configuration](https://cloud.google.com/sdk/docs/configurations) to use 
 # can be set via runtime vars
-# default is "personal-backups"
-export GCLOUD_CONFIG_NAME="personal-backups"
+# default is "personal-backup"
+export GCLOUD_CONFIG_NAME="personal-backup"
 
 # Google storage utility (requires full path, ~/gsutil/gsutil: No such file or directory).
 export GSUTIL="/usr/bin/gsutil"

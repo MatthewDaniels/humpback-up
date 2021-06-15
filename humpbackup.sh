@@ -58,7 +58,7 @@ set -- "${POSITIONAL[@]}"
 
 # error - need to set a dataset!
 if [ -z "$SOURCE_FILE" ]; then
-    genericError "no source file specified, please use the '-f or --file' parameter to specify the absolute file location."
+    genericError "no source file specified, please use the '${YELLOW_BOLD}-f${NC}' or '${YELLOW_BOLD}--file${NC}' parameter to specify the absolute file location."
     
     exit 1
 fi
@@ -66,7 +66,7 @@ fi
 # error - need to set a table or view!
 if [ -z "$DESTINATION_BUCKET" ]; then
 
-    genericError "no destination bucket specified, please use the '-d or --destination' parameter to specify the destination bucket."
+    genericError "no destination bucket specified, please use the '${YELLOW_BOLD}-d${NC}' or '${YELLOW_BOLD}--destination${NC}' parameter to specify the destination bucket."
 
     exit 1
 fi
@@ -98,8 +98,7 @@ else
 
         # now check the project
         CURRENT_PROJECT_NAME=$(gcloud config list project | grep project | awk '{print $3}')
-        if [ -z "$GCLOUD_PROJECT" ]; then
-        else
+        if [[ -v GCLOUD_PROJECT ]]; then
             if [[ $CURRENT_PROJECT_NAME != $GCLOUD_PROJECT ]]; then
                 echo 
                 echo -e "${YELLOW_BOLD}Warning${NC}, the current Project ${GREEN}${CURRENT_PROJECT_NAME}${NC} does not match target project: '${GREEN}${GCLOUD_PROJECT}${NC}'."
@@ -121,11 +120,10 @@ if [[ $? != 0 ]]; then
 fi
 
 
-
 #######################################
 ## START
 
-if [[ -v QUIET ]] && [[ "$QUIET" != "n" ]]; then
+if [[ -v QUIET ]] && [[ "$QUIET" = "n" ]]; then
     echo
     echo
     echo -e "${GREEN}╭───────────────────────────────────────────────────────╮${NC}"
@@ -141,14 +139,11 @@ readarray -t backup_sources < $SOURCE_FILE
 declare -p backup_sources
 
 # setup the gsutil command
-if [[ -v DRYRUN ]] && [[ "$DRYRUN" != "y" ]]; then
-then
+if [[ -z "${DRYRUN}" ]] || [[ "$DRYRUN" != "y" ]]; then
     GSUTIL="$GSUTIL -m"
 fi
 
-if [[ -v QUIET ]] && [[ "$QUIET" != "n" ]]; then
-    # noisy output
-else
+if [[ -z "${QUIET}" ]] || [[ "$QUIET" != "n" ]]; then
     # we want to be quiet - add the param to 
     # gsutil sends confirmation messages to stderr.  The quite option -q suppresses confirmations.
     GSUTIL+=" -q"

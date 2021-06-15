@@ -24,7 +24,7 @@ function humpbackup() {
     #     local EXCLUSIONS="$EXCLUDES"
     # fi
 
-    if [[ -v QUIET ]] && [[ "$QUIET" != "n" ]]; then
+    if [[ -v QUIET ]] && [[ "$QUIET" = "n" ]]; then
         echo -e "${UNDERLINE}Source:${NC} $SOURCE"
         echo -e "${UNDERLINE}Destination:${NC} $DESTINATION"
         echo -e "${UNDERLINE}Extra Parameters:${NC} $EXTRA_PARAMS"
@@ -50,13 +50,13 @@ function humpbackup() {
         local CONFIRMATION="$(date) $SOURCE  to  $DESTINATION ; Dry run: $DRYRUN ;  Extra Params: $EXTRA_PARAMS; Exclusions: $EXCLUSIONS"
         # $LOG+="$(echo $CONFIRMATION)"
 
-        logMessage $CONFIRMATION
+        logMessage "$CONFIRMATION"
 
         echo $CONFIRMATION >> "$LOG_FOLDER/backup-dryrun.$NOW_STRING.log"
     else
         local CONFIRMATION="$(date) $SOURCE  to  $DESTINATION  $DRYRUN"
         
-        logMessage $CONFIRMATION
+        logMessage "$CONFIRMATION"
 
         echo $CONFIRMATION >> "$LOG_FOLDER/backup.$NOW_STRING.log"
     fi
