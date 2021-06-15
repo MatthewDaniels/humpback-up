@@ -16,12 +16,14 @@ export SOURCE_FILE
 
 # whether or not this run will be a dry run - default is no (NOT y or yes or true or 1)
 export DRYRUN
-# whether or not the run will be quiet (ie: using the gsutil -q parameter) - default is yes (NOT n or no or false or 0)
-export QUIET
-
+# whether or not the run will be quiet (ie: using the gsutil -q parameter) - default is NO (ie: noisy)
+export QUIET="n"
 
 ####################
 ## CONFIG SETTINGS
+
+# the folder to log to
+export LOG_FOLDER="./logs"
 
 # the [gcloud sdk configuration](https://cloud.google.com/sdk/docs/configurations) to use 
 # can be set via runtime vars
@@ -45,3 +47,9 @@ GIT='\.git.*'
 VENDOR_CODING='^.*vendor.*$|^.*node_modules.*$'
 
 export BASE_EXCLUDES="$ARCHIVERS|$ASTYLE|$COMPILERS|$DATABASES|$LOGS|$MY_TAGS|$NAUTILUS|$VIM|$GIT|$VENDOR_CODING"
+
+
+####################
+## OTHER VARS USED
+
+export NOW_STRING=$(date +"%Y%m%d-%H%M%S")

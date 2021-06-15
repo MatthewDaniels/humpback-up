@@ -54,18 +54,20 @@ These are found in the _variables.sh file in the includes folder.
 - defaults to `personal-backups`
 - can be set at runtime using the `-cn` or `--config_name` parameter
 
-
 `BASE_EXCLUDES`
 - base excludes for use across all runs
 - includes a series of sensible built-in exclusions
 - extra excludes patterns can be sent in PER source via the include file - these are joined at runtime to the base excludes
-
 
 `GSUTIL`
 - the location of the gsutil command on your machine
 - requires full path, ~/gsutil/gsutil: No such file or directory
 - use `$ whereis gsutil` to determine the locations of it
 
+`LOG_FOLDER`
+- where to log to
+- should be an absolute location
+- should NOT contain a trailing slash
 
 **Runtime Parameters**
 
@@ -83,7 +85,7 @@ These can be sent into the script as runtime parameters
 - Absolute path to the mapping file to be loaded
 - Multi-line file
 - Structured as follows: `source | destination | [params] | [excludes]`
-- can be set at runtime using the `-dr` or `--dry_run` parameter
+- can be set at runtime using the `-f` or `--file` parameter
 
 `DESTINATION_BUCKET`
 - *REQUIRED*
@@ -101,7 +103,7 @@ These can be sent into the script as runtime parameters
 `QUIET`
 - *OPTIONAL*
 - whether or not the run will be noisy (ie: using the gsutil -q parameter) 
-- default is yes (NOT n or no or false or 0)
+- default is no (noisy)
 - can be set at runtime using the `-q` or `--quiet` parameter
 
 ----------------------------------------
@@ -125,7 +127,7 @@ How to automate the thing...
   - [x] Iterate the lines
   - [x] Use awk to parse the variables for use
 - [x] create send function
-  - [ ] make sure the source & destination are set (log an error if not)
+  - [ ] make sure the source & destination are set in the lines (log an error if not)
   - [x] log each response to file
 - [ ] handle dryrun
 - [ ] parse input vars

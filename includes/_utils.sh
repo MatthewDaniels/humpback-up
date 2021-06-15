@@ -1,5 +1,26 @@
 #!/usr/bin/env bash
 
+function genericError() {
+    local ERROR_MESSAGE=$1
+
+    if [[ -v QUIET ]] && [[ "$QUIET" != "n" ]]; then
+        echo
+        echo -e "${RED}Uh Oh!${NC} - ${ERROR_MESSAGE}"
+        echo
+    fi
+}
+
+function logMessage() {
+    local LOG_MESSAGE=$1
+
+    if [[ -v QUIET ]] && [[ "$QUIET" != "n" ]]; then
+        echo
+        echo -e "${LOG_MESSAGE}"
+        echo
+    fi
+}
+
+
 function setupErrorMessage() {
     local ERRORED_PROCESS=$1
 
