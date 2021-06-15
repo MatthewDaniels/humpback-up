@@ -53,7 +53,7 @@ function humpbackup() {
         logMessage $CONFIRMATION
 
         echo $CONFIRMATION >> "$LOG_FOLDER/backup-dryrun.$NOW_STRING.log"
-    then
+    else
         local CONFIRMATION="$(date) $SOURCE  to  $DESTINATION  $DRYRUN"
         
         logMessage $CONFIRMATION
