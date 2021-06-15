@@ -19,6 +19,8 @@ export DRYRUN
 # whether or not the run will be quiet (ie: using the gsutil -q parameter) - default is NO (ie: noisy)
 export QUIET="n"
 
+export ALWAYS_YES
+
 ####################
 ## CONFIG SETTINGS
 

@@ -1,10 +1,10 @@
 :whale: "Humpback" - a GCP Based Backup System
 ======================================
 
-# :construction: THIS IS A WORK IN PROGRESS
+## :construction: THIS IS A WORK IN PROGRESS :construction:
 
-
-<!-- ![Humpback Whale by Philipp Lehmann from the Noun Project](/humpback_whale.png) -->
+Feel free to use it, I would suggest the works is feature complete, but please do report any issues (and pull requests!).
+Also checkout the todo list at the bottom of this page.
 
 This simple script is an evolution of the great work done by Rudiger Wolf ([rnwolf](https://gist.github.com/rnwolf)) as documented here: https://gist.github.com/rnwolf/533bf309bd84982c4b39d1ca7c03991f
 
@@ -117,23 +117,26 @@ How to run the thing...
 
 How to automate the thing...
 
+Example cron job that backs up twice a day at 03:52 and 15:52:
+`$ crontab -e`
+`52 03,15 * * * ~/scripts/humpbackup -f ~/humpbackkup_input -d gs://some_gcs_bucket`
 
 ----------------------------------------
 ## TODO
 
-- [ ] Externalize source dirs
-  - [ ] Create a file which is just `source || destination || params || excludes`
+- [x] Externalize source dirs
+  - [x] Create a file which is just `source || destination || params || excludes`
   - [x] Load in the shell script
   - [x] Iterate the lines
   - [x] Use awk to parse the variables for use
 - [x] create send function
-  - [ ] make sure the source & destination are set in the lines (log an error if not)
+  - [x] make sure the source & destination are set in the lines (log an error if not)
   - [x] log each response to file
-- [ ] handle dryrun
-- [ ] parse input vars
+- [x] handle dryrun
+- [x] parse input vars
 - [ ] docs
-  - [ ] config variables
-  - [ ] runtime parameters
+  - [x] config variables
+  - [x] runtime parameters
   - [ ] executing
   - [ ] automating
 - [ ] windows version
