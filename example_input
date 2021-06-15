@@ -1,0 +1,3 @@
+/home/username/ || /home/username || ||
+/home/username/Videos/ || /home/username/Videos || -e -r || ^.*node_modules.*$|^.*dirCA.*$
+/home/username/Documents/ || /home/username/Documents || -e -r || 
