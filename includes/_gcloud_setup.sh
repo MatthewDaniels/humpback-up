@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 function gcloudSetup() {
@@ -30,3 +30,56 @@ function gcloudSetup() {
     # create the configs
     gcloud init --skip-diagnostics --configuration $GCLOUD_CONFIG_NAME
 }
+
+########################################################
+# INSTALL BASE OS PACKAGES
+########################################################
+function basePackages() {
+
+    local BASE_PACKAGES=("mawk")
+    local BASE_PACKAGES_TO_INSTALL
+
+    for PKG_COMMAND in "${BASE_PACKAGES[@]}"
+    do
+        if [ $(commandExists "${PKG_COMMAND}") == "n" ]; then
+        # if [ $(aptPackageInstalled "${PKG_COMMAND}") == "n" ]; then
+            echo
+            echo "${PKG_COMMAND} could not be found... let's install it"
+            
+            if [[ -z "$BASE_PACKAGES_TO_INSTALL" ]]; then
+                BASE_PACKAGES_TO_INSTALL=()
+            fi
+            BASE_PACKAGES_TO_INSTALL+=("${PKG_COMMAND}")
+        fi
+    done
+
+    if [[ -z "$BASE_PACKAGES_TO_INSTALL" ]]; then
+        echo
+        echo "No extra packages to install... continuing."
+        echo
+    else
+        showInstallOrSetupMessage "install" "$( IFS=$' '; echo "${BASE_PACKAGES_TO_INSTALL[*]}" )"
+        sudo apt install -y "${BASE_PACKAGES_TO_INSTALL[@]}"
+    fi
+}
+
+# function osSoftwareInstall() {
+
+#     # FOLDERS
+#     echo
+#     echo -e "${YELLOW}╭────────────────────────────────────────╮${NC}"
+#     echo -e "${YELLOW}├─────────── GCLOUD SDK SETUP ───────────┤${NC}"
+#     echo -e "${YELLOW}╰────────────────────────────────────────╯${NC}"
+#     echo
+
+#     SOFTWARE_PACKAGES=""
+
+#     # GCLOUD
+#     if [ $(commandExists "awk") == "n" ]; then
+#         SOFTWARE_PACKAGES+="awk "
+#     fi
+
+#     if [[ -v SOFTWARE_PACKAGES ]] && [[ "$SOFTWARE_PACKAGES" != "" ]]; then
+#         sudo apt-get install --no-install-recommends --no-install-suggests -y $SOFTWARE_PACKAGES
+#     fi
+# }

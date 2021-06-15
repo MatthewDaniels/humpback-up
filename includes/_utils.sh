@@ -1,4 +1,4 @@
-#!/bin.bash
+#!/usr/bin/env bash
 
 function setupErrorMessage() {
     local ERRORED_PROCESS=$1
